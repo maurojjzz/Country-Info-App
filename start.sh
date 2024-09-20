@@ -23,8 +23,9 @@ EOL
 # Regresar a la raíz del proyecto
 cd ..
 
-# Ejecutar el backend en una terminal separada
-gnome-terminal -- bash -c "cd backend && npm run start:dev; exec bash"
+# Ejecutar el backend y el frontend en segundo plano
+(cd backend && npm run start:dev) & 
+(cd frontend && npm run dev) &
 
-# Ejecutar el frontend en una terminal separada
-gnome-terminal -- bash -c "cd frontend && npm run dev; exec bash"
+# Esperar a que ambos procesos finalicen
+wait
