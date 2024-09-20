@@ -47,7 +47,12 @@ const FlagSection = () => {
         <Pagination count={totalPages} page={page} onChange={handleChange} color="primary" sx={{ marginTop: "20px" }} />
       )}
       {paginatedFlags?.map((counFlag, index) => (
-        <FlagCard key={index} titleCountry={counFlag.name} flagImg={counFlag.flag} />
+        <FlagCard 
+            key={index} 
+            titleCountry={counFlag.name} 
+            flagImg={counFlag.flag} 
+            codeName={counFlag.iso2}
+        />
       ))}
 
       {totalPages > 0 && (

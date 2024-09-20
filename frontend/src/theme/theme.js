@@ -14,6 +14,9 @@ const theme = createTheme({
     card: {
       main: "#fffefe",
     },
+    gray: {
+      main: "#6a719a",
+    },
   },
   typography: {
     fontFamily: [

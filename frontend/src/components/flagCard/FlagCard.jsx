@@ -1,8 +1,22 @@
 import { Card, CardMedia, CardContent, Typography } from "@mui/material";
 
-const FlagCard = ({ titleCountry, flagImg }) => {
+import { useNavigate } from "react-router-dom";
+
+const FlagCard = ({ titleCountry, flagImg, codeName }) => {
+
+    const navigate = useNavigate();
+
+    const handleFlagClick = () => {
+        navigate(`/countries/${codeName}`, {
+          state: {
+            codeName: { codeName},
+          },
+        });
+      };
+
   return (
     <Card
+    onClick={() => handleFlagClick()}
       sx={{
         maxWidth: 345,
         width: "90%",

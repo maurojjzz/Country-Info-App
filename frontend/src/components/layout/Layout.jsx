@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom";
 
 import Header from "../header/Header";
 import Home from "../home/Home";
+import CountryInfo from "../countryInfo/CountryInfo";
 
 const Layout = () => {
   const theme = useTheme();
@@ -27,10 +28,9 @@ const Layout = () => {
         }}
       >
         <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/countries" element={<div> Countries ee </div>} />
+          <Route path="/" element={<Home />} />
+          <Route path="/countries/:code" element={<CountryInfo />} />
         </Routes>
-
       </Box>
     </Box>
   );

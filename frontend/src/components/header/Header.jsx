@@ -1,6 +1,8 @@
 import { Box, useTheme, Typography } from "@mui/material"
+import { useNavigate } from "react-router-dom"
 
 const Header = () => {
+    const navigate = useNavigate()
     const theme = useTheme()
   return (
     <Box
@@ -15,6 +17,7 @@ const Header = () => {
     >
         <Typography 
             variant="h4"
+            onClick={() => navigate("/")}
             sx={{
                 fontFamily: "HelveticaNowDisplay",
                 fontWeight: "bold",

@@ -1,4 +1,4 @@
-import { Box, useTheme, Typography } from "@mui/material";
+import { Box, useTheme/*, Typography*/ } from "@mui/material";
 import FlagSection from "../flagSection/FlagSection";
 
 const Home = () => {
@@ -7,7 +7,6 @@ const Home = () => {
     <Box
         sx={{
             backgroundColor: theme.palette.background.main,
-            border: "1px solid black",
             flexGrow: 1,
             position: "relative",
             display: "flex",
@@ -16,7 +15,7 @@ const Home = () => {
         }}
     >
 
-      <Typography variant="body1">los selects</Typography>
+      {/* <Typography variant="body1">input select should be here</Typography> */}
 
       <FlagSection />
 
