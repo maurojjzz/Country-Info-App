@@ -9,10 +9,13 @@ const theme = createTheme({
       main: "#262b2c",
     },
     background: {
-      main: "#fafbfb",
+      main: "#CCD0D4",
     },
     card: {
       main: "#fffefe",
+    },
+    gray: {
+      main: "#6a719a",
     },
   },
   typography: {

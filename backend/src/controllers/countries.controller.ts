@@ -4,11 +4,13 @@ import axios from "axios";
 const findAll = async (req: Request, res: Response, next: NextFunction) => {
     try {
         const response = await axios.get(`${process.env.COUNTRIES_API}`);
-        res.json(response.data);
+        const flags = await axios.get(`${process.env.COUNTRY_FLAG}`);
+        res.json({country: response.data, flag: flags.data.data});
     } catch (error) {
         res.status((error as any)?.status).json({error: (error as Error)?.message});
     }
 };
+
 
 const findOne = async (req: Request, res: Response, next: NextFunction) => {
     try {
@@ -33,4 +35,5 @@ const findOne = async (req: Request, res: Response, next: NextFunction) => {
 };
 
 
-export { findAll, findOne }
+
+export { findAll, findOne}
