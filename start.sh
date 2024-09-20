@@ -27,6 +27,6 @@ cd ..
 (cd backend && npm run start:dev) & 
 (cd frontend && npm run dev) &
 
-echo "Aplicación en ejecución."
-echo "Accede a la aplicación en: http://localhost:5173/"
-echo "Para detener el servidor, presiona Ctrl+C en esta terminal."
+# Esperar a que ambos procesos finalicen
+
+wait
