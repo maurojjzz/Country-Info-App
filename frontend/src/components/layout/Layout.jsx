@@ -2,6 +2,7 @@ import { Box, useTheme } from "@mui/material";
 import { Routes, Route } from "react-router-dom";
 
 import Header from "../header/Header";
+import Home from "../home/Home";
 
 const Layout = () => {
   const theme = useTheme();
@@ -14,6 +15,7 @@ const Layout = () => {
         display: "flex",
         flexDirection: "column",
         position: "relative",
+        overflowX: "hidden",
       }}
     >
       <Header />
@@ -25,7 +27,7 @@ const Layout = () => {
         }}
       >
         <Routes>
-            <Route path="/" element={<div> Home ee </div>} />
+            <Route path="/" element={<Home />} />
             <Route path="/countries" element={<div> Countries ee </div>} />
         </Routes>
 
