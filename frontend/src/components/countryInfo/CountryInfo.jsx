@@ -1,13 +1,16 @@
 import { useEffect, useState } from "react";
 import { Box, Typography, useTheme } from "@mui/material";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { ApiService } from "../../services/api.js";
 import BorderCountries from "./borderCountries/BorderCountries";
 import Population from "../population/Population";
+import LoaderModal from "../loader/LoaderModal.jsx";
 
 const CountryInfo = () => {
   const [country, setCountry] = useState(null);
+  const [loading, setLoading] = useState(true);
   const location = useLocation();
+  const navigate = useNavigate();
   const { codeName } = location.state || {};
   const countries = new ApiService("countries");
 
@@ -15,14 +18,19 @@ const CountryInfo = () => {
 
   const getCountry = async () => {
     try {
+      setLoading(true);
       const response = await countries.getByCode(codeName?.codeName);
       setCountry(response);
     } catch (error) {
-      console.log(error);
+      setLoading(false);
+      if (error?.response?.status === 404) {
+        navigate("/notFound");
+      }
+      console.log(error, "error en contrinfo");
+    } finally {
+      setLoading(false);
     }
   };
-
-  console.log(country);
 
   useEffect(() => {
     if (codeName) {
@@ -31,7 +39,7 @@ const CountryInfo = () => {
   }, [codeName]);
 
   if (!country) {
-    return <Typography>Loading...</Typography>;
+    return <LoaderModal />;
   }
 
   return (
@@ -117,7 +125,8 @@ const CountryInfo = () => {
 
         <BorderCountries borderCountries={country?.country?.borders || "Unknown"} />
       </Box>
-        <Population populationData={country?.population?.data?.populationCounts || "Unknown"} />
+      <Population populationData={country?.population?.data?.populationCounts || "Unknown"} />
+      {loading && <LoaderModal />}
     </Box>
   );
 };

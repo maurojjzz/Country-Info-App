@@ -4,6 +4,7 @@ import { Routes, Route } from "react-router-dom";
 import Header from "../header/Header";
 import Home from "../home/Home";
 import CountryInfo from "../countryInfo/CountryInfo";
+import NotFound from "../notFound/NotFound";
 
 const Layout = () => {
   const theme = useTheme();
@@ -30,6 +31,7 @@ const Layout = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/countries/:code" element={<CountryInfo />} />
+          <Route path="/notFound" element={<NotFound />} />
         </Routes>
       </Box>
     </Box>
