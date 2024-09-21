@@ -4,12 +4,11 @@ import FlagCard from "../flagCard/FlagCard";
 import { ApiService } from "../../services/api.js";
 import LoaderModal from "../loader/LoaderModal.jsx";
 
-
 const FlagSection = () => {
   const [country, setCountry] = useState([]);
   const [loading, setLoading] = useState(true);
   const [page, setPage] = useState(1);
-  const itemsPerPage = 10;
+  const itemsPerPage = 9;
   const countries = new ApiService("countries");
 
   const getCountries = async () => {
@@ -54,9 +53,20 @@ const FlagSection = () => {
       {totalPages > 0 && (
         <Pagination count={totalPages} page={page} onChange={handleChange} color="primary" sx={{ marginTop: "20px" }} />
       )}
-      {paginatedFlags?.map((counFlag, index) => (
-        <FlagCard key={index} titleCountry={counFlag.name} flagImg={counFlag.flag} codeName={counFlag.iso2} />
-      ))}
+      <Box
+        sx={{
+          width: "100%",
+          maxWidth: "1200px",
+          display: "flex",
+          flexWrap: "wrap",
+          justifyContent: "center",
+          gap: "20px",
+        }}
+      >
+        {paginatedFlags?.map((counFlag, index) => (
+          <FlagCard key={index} titleCountry={counFlag.name} flagImg={counFlag.flag} codeName={counFlag.iso2} />
+        ))}
+      </Box>
 
       {totalPages > 0 && (
         <Pagination count={totalPages} page={page} onChange={handleChange} color="primary" sx={{ marginTop: "20px" }} />
