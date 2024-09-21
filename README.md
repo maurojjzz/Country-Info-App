@@ -24,24 +24,7 @@
 
 This will install all the dependencies and build both the frontend and backend.
 
-The app is running on http://localhost:5173/
+The app will be running on http://localhost:5173/
 
-## Running the Application without ./start.sh
-
-### Backend
-
-To start the backend server:
-```bash
-cd backend
-npm run start:dev
-```
-
-
-### Frontend
-To start the frontend server:
-```bash
-cd frontend
-npm run dev
-```
 
 
