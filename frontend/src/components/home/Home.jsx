@@ -1,6 +1,8 @@
 import { Box, useTheme/*, Typography*/ } from "@mui/material";
 import FlagSection from "../flagSection/FlagSection";
 
+import LoaderModal from "../loader/LoaderModal.jsx";
+
 const Home = () => {
     const theme = useTheme()
   return (
@@ -18,6 +20,8 @@ const Home = () => {
       {/* <Typography variant="body1">input select should be here</Typography> */}
 
       <FlagSection />
+
+      <LoaderModal />
 
     </Box>
   )
